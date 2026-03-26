@@ -1,0 +1,6 @@
+@Project_Selling_Clean_Food_HostAddress = http://localhost:5267
+
+GET {{Project_Selling_Clean_Food_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

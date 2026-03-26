@@ -1,0 +1,130 @@
+C:\Users\user\OneDrive\C#\Project Selling Clean Food\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\user\OneDrive\C#\Project Selling Clean Food\bin\Debug\net8.0\appsettings.json
+C:\Users\user\OneDrive\C#\Project Selling Clean Food\bin\Debug\net8.0\Project Selling Clean Food.staticwebassets.runtime.json
+C:\Users\user\OneDrive\C#\Project Selling Clean Food\bin\Debug\net8.0\Project Selling Clean Food.exe
+C:\Users\user\OneDrive\C#\Project Selling Clean Food\bin\Debug\net8.0\Project Selling Clean Food.deps.json
+C:\Users\user\OneDrive\C#\Project Selling Clean Food\bin\Debug\net8.0\Project Selling Clean Food.runtimeconfig.json
+C:\Users\user\OneDrive\C#\Project Selling Clean Food\bin\Debug\net8.0\Project Selling Clean Food.dll
+C:\Users\user\OneDrive\C#\Project Selling Clean Food\bin\Debug\net8.0\Project Selling Clean Food.pdb
+C:\Users\user\OneDrive\C#\Project Selling Clean Food\bin\Debug\net8.0\Dapper.dll
+C:\Users\user\OneDrive\C#\Project Selling Clean Food\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\Users\user\OneDrive\C#\Project Selling Clean Food\bin\Debug\net8.0\Npgsql.dll
+C:\Users\user\OneDrive\C#\Project Selling Clean Food\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\user\OneDrive\C#\Project Selling Clean Food\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\user\OneDrive\C#\Project Selling Clean Food\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\user\OneDrive\C#\Project Selling Clean Food\bin\Debug\net8.0\System.Data.SqlClient.dll
+C:\Users\user\OneDrive\C#\Project Selling Clean Food\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll
+C:\Users\user\OneDrive\C#\Project Selling Clean Food\bin\Debug\net8.0\runtimes\win-arm64\native\sni.dll
+C:\Users\user\OneDrive\C#\Project Selling Clean Food\bin\Debug\net8.0\runtimes\win-x64\native\sni.dll
+C:\Users\user\OneDrive\C#\Project Selling Clean Food\bin\Debug\net8.0\runtimes\win-x86\native\sni.dll
+C:\Users\user\OneDrive\C#\Project Selling Clean Food\bin\Debug\net8.0\runtimes\unix\lib\net8.0\System.Data.SqlClient.dll
+C:\Users\user\OneDrive\C#\Project Selling Clean Food\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Data.SqlClient.dll
+C:\Users\user\OneDrive\C#\Project Selling Clean Food\obj\Debug\net8.0\Project Selling Clean Food.csproj.AssemblyReference.cache
+C:\Users\user\OneDrive\C#\Project Selling Clean Food\obj\Debug\net8.0\Project Selling Clean Food.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\OneDrive\C#\Project Selling Clean Food\obj\Debug\net8.0\Project Selling Clean Food.AssemblyInfoInputs.cache
+C:\Users\user\OneDrive\C#\Project Selling Clean Food\obj\Debug\net8.0\Project Selling Clean Food.AssemblyInfo.cs
+C:\Users\user\OneDrive\C#\Project Selling Clean Food\obj\Debug\net8.0\Project Selling Clean Food.csproj.CoreCompileInputs.cache
+C:\Users\user\OneDrive\C#\Project Selling Clean Food\obj\Debug\net8.0\Project Selling Clean Food.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\user\OneDrive\C#\Project Selling Clean Food\obj\Debug\net8.0\Project Selling Clean Food.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\user\OneDrive\C#\Project Selling Clean Food\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\user\OneDrive\C#\Project Selling Clean Food\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\user\OneDrive\C#\Project Selling Clean Food\obj\Debug\net8.0\staticwebassets\msbuild.Project Selling Clean Food.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\user\OneDrive\C#\Project Selling Clean Food\obj\Debug\net8.0\staticwebassets\msbuild.build.Project Selling Clean Food.props
+C:\Users\user\OneDrive\C#\Project Selling Clean Food\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.Project Selling Clean Food.props
+C:\Users\user\OneDrive\C#\Project Selling Clean Food\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.Project Selling Clean Food.props
+C:\Users\user\OneDrive\C#\Project Selling Clean Food\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\user\OneDrive\C#\Project Selling Clean Food\obj\Debug\net8.0\scopedcss\bundle\Project Selling Clean Food.styles.css
+C:\Users\user\OneDrive\C#\Project Selling Clean Food\obj\Debug\net8.0\Project Selling Clean Food.csproj.CopyComplete
+C:\Users\user\OneDrive\C#\Project Selling Clean Food\obj\Debug\net8.0\Project Selling Clean Food.dll
+C:\Users\user\OneDrive\C#\Project Selling Clean Food\obj\Debug\net8.0\refint\Project Selling Clean Food.dll
+C:\Users\user\OneDrive\C#\Project Selling Clean Food\obj\Debug\net8.0\Project Selling Clean Food.pdb
+C:\Users\user\OneDrive\C#\Project Selling Clean Food\obj\Debug\net8.0\Project Selling Clean Food.genruntimeconfig.cache
+C:\Users\user\OneDrive\C#\Project Selling Clean Food\obj\Debug\net8.0\ref\Project Selling Clean Food.dll
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\obj\Debug\net8.0\Project Selling Clean Food.dll
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\obj\Debug\net8.0\refint\Project Selling Clean Food.dll
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\obj\Debug\net8.0\Project Selling Clean Food.pdb
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\obj\Debug\net8.0\Project Selling Clean Food.csproj.AssemblyReference.cache
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\obj\Debug\net8.0\rpswa.dswa.cache.json
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\obj\Debug\net8.0\Project Selling Clean Food.GeneratedMSBuildEditorConfig.editorconfig
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\obj\Debug\net8.0\Project Selling Clean Food.AssemblyInfoInputs.cache
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\obj\Debug\net8.0\Project Selling Clean Food.AssemblyInfo.cs
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\obj\Debug\net8.0\Project Selling Clean Food.csproj.CoreCompileInputs.cache
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\obj\Debug\net8.0\Project Selling Clean Food.MvcApplicationPartsAssemblyInfo.cs
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\obj\Debug\net8.0\Project Selling Clean Food.MvcApplicationPartsAssemblyInfo.cache
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\bin\Debug\net8.0\appsettings.Development.json
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\bin\Debug\net8.0\appsettings.json
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\bin\Debug\net8.0\Project Selling Clean Food.staticwebassets.runtime.json
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\bin\Debug\net8.0\Project Selling Clean Food.staticwebassets.endpoints.json
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\bin\Debug\net8.0\Project Selling Clean Food.exe
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\bin\Debug\net8.0\Project Selling Clean Food.deps.json
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\bin\Debug\net8.0\Project Selling Clean Food.runtimeconfig.json
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\bin\Debug\net8.0\Project Selling Clean Food.dll
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\bin\Debug\net8.0\Project Selling Clean Food.pdb
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\bin\Debug\net8.0\AutoMapper.dll
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\bin\Debug\net8.0\Dapper.dll
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\bin\Debug\net8.0\Microsoft.Bcl.Cryptography.dll
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\bin\Debug\net8.0\Microsoft.Data.SqlClient.Extensions.Abstractions.dll
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\bin\Debug\net8.0\Microsoft.Data.SqlClient.Internal.Logging.dll
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\bin\Debug\net8.0\Microsoft.OpenApi.dll
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\bin\Debug\net8.0\Npgsql.dll
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\bin\Debug\net8.0\System.Data.SqlClient.dll
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\bin\Debug\net8.0\System.Diagnostics.EventLog.dll
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\bin\Debug\net8.0\System.Security.Cryptography.Pkcs.dll
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\bin\Debug\net8.0\cs\Microsoft.Data.SqlClient.resources.dll
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\bin\Debug\net8.0\de\Microsoft.Data.SqlClient.resources.dll
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\bin\Debug\net8.0\es\Microsoft.Data.SqlClient.resources.dll
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\bin\Debug\net8.0\fr\Microsoft.Data.SqlClient.resources.dll
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\bin\Debug\net8.0\it\Microsoft.Data.SqlClient.resources.dll
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\bin\Debug\net8.0\ja\Microsoft.Data.SqlClient.resources.dll
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\bin\Debug\net8.0\ko\Microsoft.Data.SqlClient.resources.dll
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\bin\Debug\net8.0\pl\Microsoft.Data.SqlClient.resources.dll
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\bin\Debug\net8.0\pt-BR\Microsoft.Data.SqlClient.resources.dll
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\bin\Debug\net8.0\ru\Microsoft.Data.SqlClient.resources.dll
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\bin\Debug\net8.0\tr\Microsoft.Data.SqlClient.resources.dll
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\bin\Debug\net8.0\zh-Hans\Microsoft.Data.SqlClient.resources.dll
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\bin\Debug\net8.0\zh-Hant\Microsoft.Data.SqlClient.resources.dll
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\bin\Debug\net8.0\runtimes\unix\lib\net8.0\Microsoft.Data.SqlClient.dll
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\bin\Debug\net8.0\runtimes\win\lib\net8.0\Microsoft.Data.SqlClient.dll
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\bin\Debug\net8.0\runtimes\win-arm64\native\sni.dll
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\bin\Debug\net8.0\runtimes\win-x64\native\sni.dll
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\bin\Debug\net8.0\runtimes\win-x86\native\sni.dll
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\bin\Debug\net8.0\runtimes\unix\lib\net8.0\System.Data.SqlClient.dll
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Data.SqlClient.dll
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Diagnostics.EventLog.dll
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\obj\Debug\net8.0\rjimswa.dswa.cache.json
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\obj\Debug\net8.0\scopedcss\bundle\Project Selling Clean Food.styles.css
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\obj\Debug\net8.0\staticwebassets.build.json
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\obj\Debug\net8.0\staticwebassets.build.json.cache
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\obj\Debug\net8.0\staticwebassets.development.json
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\obj\Debug\net8.0\swae.build.ex.cache
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\obj\Debug\net8.0\Project .433F5D97.Up2Date
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\obj\Debug\net8.0\Project Selling Clean Food.genruntimeconfig.cache
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\obj\Debug\net8.0\ref\Project Selling Clean Food.dll
+D:\My Project\Project Selling Clean Food\Project Selling Clean Food\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
