@@ -6,8 +6,9 @@ namespace Project_Selling_Clean_Food.Repository
     {
         Task<cart_item> GetByIDAsync(int id);
         Task<List<cart_item>> GetAllAsync();
-        Task<int> UpdateAsync(cart_item cartItem, int id);
+        Task<int> UpdateAsync(int id, int quantity);
         Task<int> DeleteAsync(int id);
         Task<int> AddnewAsync(cart_item cartItem);
+        Task<int> ClearCartUser(int userId);
     }
 }

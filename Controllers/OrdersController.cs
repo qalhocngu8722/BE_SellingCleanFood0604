@@ -47,7 +47,7 @@ namespace Project_Selling_Clean_Food.Controllers
             if (id > 0)
             {
                 o.id = id;
-                return Ok("Thêm mới thành công");
+                return Ok(id);
             }
             return BadRequest("Thêm mới đơn hàng không thành công");
         }
@@ -97,6 +97,16 @@ namespace Project_Selling_Clean_Food.Controllers
                 return NotFound("Không có đơn hàng chi tiết nào");
             }
             return Ok(res);
+        }
+        [HttpPut("Update_status_order")]
+        public async Task<ActionResult<int>> UpdateOrderPaymentStatus(int orderId, string? payment_status, string? order_status)
+        {
+            var res = await _ordersRepo.UpdateOrderPaymentStatus(orderId, payment_status, order_status);
+            if(res > 0)
+            {
+                return Ok("Cập Nhật Thành Công");
+            }
+            return BadRequest("Cập Nhật Fail");
         }
     }
 }

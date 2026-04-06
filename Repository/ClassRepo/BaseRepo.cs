@@ -14,7 +14,7 @@ namespace Project_Selling_Clean_Food.Repository
         }
         public IDbConnection Getconnection()
         {
-            return new SqlConnection(_configuration.GetConnectionString("MyConnection"));
+            return new NpgsqlConnection(_configuration.GetConnectionString("MyConnection"));
         }
         public async Task<T?> GetByIDAsync<T>(int id) where T : class
         {
@@ -29,7 +29,7 @@ namespace Project_Selling_Clean_Food.Repository
         {
             using var con = Getconnection();
             string nametable = typeof(T).Name;
-            string query = $@"SELECT * FROM {nametable}";
+            string query = $@"SELECT * FROM {nametable} order by id ASC";
             var result = await con.QueryAsync<T>(query);
             return result.ToList();
         }
@@ -64,6 +64,7 @@ namespace Project_Selling_Clean_Food.Repository
             var properties = check.Where(p => p.Name != idField).ToList();
             string list_field_update = string.Join(", ", properties.Select(p => p.Name + " = @" + p.Name));
             string query = $@"UPDATE {name_table} SET {list_field_update} WHERE {idField} = {id}";
+            //await Console.Out.WriteLineAsync(query);
             var result = await con.ExecuteAsync(query, entity);
             return result;
         }

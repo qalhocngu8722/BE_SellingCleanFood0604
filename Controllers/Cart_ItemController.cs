@@ -42,9 +42,9 @@ namespace Project_Selling_Clean_Food.Controllers
             return BadRequest("Thêm mới cart item không thành công");
         }
         [HttpPut("CartItem/UpdateCartItem")]
-        public async Task<ActionResult<int>> UpdateAsync(cart_item c, int id)
+        public async Task<ActionResult<int>> UpdateAsync(int id,int quantity)
         {
-            var affected = await _cartItemRepo.UpdateAsync(c, id);
+            var affected = await _cartItemRepo.UpdateAsync(id,quantity);
             if (affected > 0)
                 return Ok("Sửa thành công");
             return BadRequest("Sửa thông tin cart item không thành công");
@@ -56,6 +56,16 @@ namespace Project_Selling_Clean_Food.Controllers
             if (affected > 0)
                 return Ok("Xóa thành công");
             return BadRequest("Xóa cart item không thành công");
+        }
+        [HttpDelete("CartItem/ClearAllbyUserId")]
+        public async Task<ActionResult<int>> ClearCartUser(int userid)
+        {
+            var res = await _cartItemRepo.ClearCartUser(userid);
+            if (res < 1)
+            {
+                return BadRequest("Clear Cart Fail");
+            }
+            return Ok(res);
         }
     }
 }

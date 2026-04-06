@@ -11,5 +11,6 @@ namespace Project_Selling_Clean_Food.DTOs
         public string name { get; set; }
         public int quantity { get; set; }
         public decimal unit_price { get; set; }
+        public decimal total_amount { get; set;}
     }
 }

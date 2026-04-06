@@ -10,5 +10,7 @@ namespace Project_Selling_Clean_Food.Repository
         Task<int> DeleteAsync(int id);
         Task<int> AddnewAsync(product_image productImage);
         Task<List<product_image>> GetListImg_product_byID(int id);
+        Task<int> Update_primary_img(int id, string new_url_img);
+        Task<int> Delete_img_not_primary_img(int id);
     }
 }

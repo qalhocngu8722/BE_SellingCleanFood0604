@@ -14,7 +14,7 @@
         public string size { get; set; }
         public string usage_instructions { get; set; }
         public string storage_instructions { get; set; }
-        public DateTime? hsd { get; set; }
+        public DateTime hsd { get; set; }
         public DateTime? created_at { get; set; } = DateTime.Now;
     }
 }

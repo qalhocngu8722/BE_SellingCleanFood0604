@@ -1,3 +1,4 @@
+using Dapper;
 using Project_Selling_Clean_Food.Model;
 
 namespace Project_Selling_Clean_Food.Repository
@@ -28,7 +29,25 @@ namespace Project_Selling_Clean_Food.Repository
 
         public async Task<int> AddnewAsync(Order_Item orderItem)
         {
-            return await AddnewAsync<Order_Item>(orderItem);
+            using var con = Getconnection();
+            var query = $@"INSERT INTO Order_Item
+                        (
+                            order_id,
+                            product_id,
+                            quantity,
+                            unit_price
+                        )
+                        VALUES
+                        (
+                            @order_id,
+                            @product_id,
+                            @Quantity,
+                            @unit_price
+                        )
+                        RETURNING id;";
+            var newid = await con.QuerySingleAsync<int>(query, orderItem);
+            return newid;
+
         }
     }
 }

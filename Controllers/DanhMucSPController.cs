@@ -38,9 +38,9 @@ namespace Project_Selling_Clean_Food.Controllers
             if (id > 0)
             {
                 p.id = (int)id;
-                return Ok("Thêm mới thành công");
+                return Ok(id);
             }
-            return BadRequest("Thêm mới danh mục sản phẩm không thành công");
+            return BadRequest(-1);
         }
         [HttpPut("ProductCategory/UpdateProductCategory")]
         public async Task<ActionResult<int>> UpdateAsync(Product_Category p, int id)

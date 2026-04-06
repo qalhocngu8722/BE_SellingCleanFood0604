@@ -15,5 +15,6 @@ namespace Project_Selling_Clean_Food.Repository
         Task<List<OrderListDTO>> GetOrderListByUserIdAsync(int userId);
         Task<List<GetListDetailOrderStaff>> GetListDetailOrder_Staff();
         Task<int> UpdateOrderPaymentStatus(int orderId, string paymentStatus, string orderStatus);
+
     }
 }

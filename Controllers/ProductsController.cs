@@ -57,44 +57,137 @@ namespace Project_Selling_Clean_Food.Controllers
                 return BadRequest(ex.Message);
             }
         }
-        [HttpPut("UpdateSanPham")]
-        public async Task<ActionResult<int>> UpdateDetailProduct(int idsp, [FromBody] UpdSanPham udp_sp)
+        [HttpPut("UpdateDetailProduct")]
+        [Consumes("multipart/form-data")]
+        public async Task<ActionResult> UpdateDetailProduct(int id,[FromForm] UpdSanPham request)
         {
-            var dtpd = await _sellingcleanfood.GetDetailProduct(idsp);
-            if (dtpd == null)
-            {
-                return NotFound("Khong tim thay user nay");
-            }
-
-            dtpd.name_sp = (udp_sp.name_sp == null) ? dtpd.name_sp : udp_sp.name_sp;
-
-
-            dtpd.img_sp = (udp_sp.img_sp.Count == 0) ? dtpd.img_sp : udp_sp.img_sp;
-            dtpd.price = udp_sp.price ?? dtpd.price;
-            dtpd.iddm = udp_sp.iddm ?? dtpd.iddm;
-            dtpd.donvi = (udp_sp.donvi == null) ? dtpd.donvi : udp_sp.donvi;
-            dtpd.decription = (udp_sp.decription == null) ? dtpd.decription : udp_sp.decription;
-            dtpd.soluong = udp_sp.soluong ?? dtpd.soluong;
             try
             {
-                var affected_row = await _sellingcleanfood.UpdateDetailProduct(idsp,dtpd);
-                if (affected_row > 0)
+                // ✅ Validate: Product must exist
+                var existingProduct = await _sellingcleanfood.GetByIDAsync(id);
+                if (existingProduct == null)
                 {
-                    return Ok("update thanh cong");
+                    return BadRequest($"Sản phẩm với ID {id} không tồn tại");
                 }
-                return BadRequest("update that bai");
+
+                var updSanPham = new BaseTypeFieldUpdProduct
+                {
+                    name = request.name,
+                    description = request.description,
+                    price = request.price,
+                    unit = request.unit,
+                    category_id = request.category_id,
+                    origin = request.origin,
+                    food_type = request.food_type,
+                    quantity = request.quantity,
+                    size = request.size,
+                    usage_instructions = request.usage_instructions,
+                    storage_instructions = request.storage_instructions,
+                    hsd = request.hsd
+                };
+
+                var uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "uploads", "imgs");
+
+                if (!Directory.Exists(uploadsFolder))
+                    Directory.CreateDirectory(uploadsFolder);
+
+                var validImgTypes = new List<string> { "image/jpeg", "image/png" };
+
+                var listProductImages = new List<product_image>();
+
+                var new_img_primary = "";
+
+                // ✅ Process primary image
+                if (request.primary_img_file != null && request.primary_img_file.Length > 0)
+                {
+                    if (!validImgTypes.Contains(request.primary_img_file.ContentType))
+                        return BadRequest("Ảnh chính không hợp lệ - chỉ chấp nhận JPEG, PNG");
+
+                    if (request.primary_img_file.Length > 5 * 1024 * 1024)  // 5MB max
+                        return BadRequest("Ảnh chính quá lớn - tối đa 5MB");
+
+                    try
+                    {
+                        var uniqueFileName = Guid.NewGuid() + Path.GetExtension(request.primary_img_file.FileName);
+                        var filePath = Path.Combine(uploadsFolder, uniqueFileName);
+
+                        using var stream = new FileStream(filePath, FileMode.Create);
+                        await request.primary_img_file.CopyToAsync(stream);
+
+                        new_img_primary = $"/uploads/imgs/{uniqueFileName}";
+                        Console.WriteLine($"✅ Primary image saved: {new_img_primary}");
+                    }
+                    catch (Exception fileEx)
+                    {
+                        return BadRequest($"Lỗi lưu ảnh chính: {fileEx.Message}");
+                    }
+                }
+
+                // ✅ Process secondary images
+                if (request.images != null && request.images.Count > 0)
+                {
+                    foreach (var img in request.images)
+                    {
+                        if (!validImgTypes.Contains(img.ContentType))
+                            return BadRequest("Một hoặc nhiều ảnh phụ không hợp lệ - chỉ chấp nhận JPEG, PNG");
+
+                        if (img.Length > 5 * 1024 * 1024)
+                            return BadRequest($"Ảnh phụ quá lớn - tối đa 5MB");
+
+                        try
+                        {
+                            var uniqueFileName = Guid.NewGuid() + Path.GetExtension(img.FileName);
+                            var filePath = Path.Combine(uploadsFolder, uniqueFileName);
+
+                            using var stream = new FileStream(filePath, FileMode.Create);
+                            await img.CopyToAsync(stream);
+
+                            listProductImages.Add(new product_image
+                            {
+                                image_url = $"/uploads/imgs/{uniqueFileName}",
+                                is_primary = false
+                            });
+                            Console.WriteLine($"✅ Secondary image saved: /uploads/imgs/{uniqueFileName}");
+                        }
+                        catch (Exception fileEx)
+                        {
+                            return BadRequest($"Lỗi lưu ảnh phụ: {fileEx.Message}");
+                        }
+                    }
+                }
+
+                // ✅ FIX: Repo now handles the logic correctly
+                var affected = await _sellingcleanfood.UpdateDetailProduct(
+                    id,
+                    updSanPham,
+                    new_img_primary,
+                    listProductImages,
+                    !string.IsNullOrEmpty(new_img_primary)
+                );
+
+                if (affected > 0)
+                {
+                    Console.WriteLine($"✅ Product {id} updated successfully");
+                    return Ok(new { message = "Cập nhật sản phẩm thành công", productId = id });
+                }
+
+                return BadRequest(new { message = "Cập nhật sản phẩm thất bại", productId = -1 });
             }
-            catch (Exception ex) { return BadRequest(ex.Message); }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"❌ Exception in UpdateDetailProduct: {ex.Message}\n{ex.StackTrace}");
+                return BadRequest($"Lỗi cập nhật sản phẩm: {ex.Message}");
+            }
         }
-        [HttpDelete("DeleteUser")]
+        [HttpDelete("DeleteProductbyID")]
         public async Task<ActionResult<int>> DeleteUser(int id)
         {
             var affected_row = await _sellingcleanfood.DeleteAsync(id);
             if (affected_row > 0)
             {
-                return Ok("Xoa nguoi dung thanh cong");
+                return Ok("Xoa product thanh cong");
             }
-            return BadRequest("Xoa Khong Thanh Cong");
+            return BadRequest("Xoa product Khong Thanh Cong");
         }
         [HttpGet("Get_Detail_Product")]
         public async Task<ActionResult<DetailProducts>> Get_Detail_Products(int id)
@@ -102,13 +195,13 @@ namespace Project_Selling_Clean_Food.Controllers
             try
             {
                 var dtsp = await _sellingcleanfood.Get_Detail_Products(id);
-                if(dtsp is null)
+                if (dtsp is null)
                 {
                     return NotFound("Không thể tải sản phẩm");
                 }
                 return Ok(dtsp);
             }
-            catch(Exception ex) { return BadRequest(); }
+            catch (Exception ex) { return BadRequest(); }
         }
 
         [HttpGet("Render_Product_sellwell_Dashbroads")]
@@ -128,12 +221,10 @@ namespace Project_Selling_Clean_Food.Controllers
         }
         [HttpPost("Add_new_Detail_Product")]
         public async Task<ActionResult> Add_new_Detail_product(
-            [FromForm] products p,
-            IFormFile? primary_img,
-            List<IFormFile>? pi)
+            [FromForm] UpdSanPham addnewpd)
         {
             // Validate product name
-            if (string.IsNullOrWhiteSpace(p.name))
+            if (string.IsNullOrWhiteSpace(addnewpd.name))
                 return BadRequest("Vui lòng điền vào tên sản phẩm");
 
             var validImgTypes = new List<string> { "image/jpeg", "image/png" };
@@ -143,17 +234,17 @@ namespace Project_Selling_Clean_Food.Controllers
 
             // Xử lý ảnh chính
             string? mainImgUrl = null;
-            if (primary_img != null)
+            if (addnewpd.primary_img_file != null)
             {
-                if (!validImgTypes.Contains(primary_img.ContentType))
+                if (!validImgTypes.Contains(addnewpd.primary_img_file.ContentType))
                     return BadRequest("Ảnh chính tải lên không hợp lệ");
-                if (primary_img.Length > 0)
+                if (addnewpd.primary_img_file.Length > 0)
                 {
-                    var uniqueFileName = Guid.NewGuid() + Path.GetExtension(primary_img.FileName);
+                    var uniqueFileName = Guid.NewGuid() + Path.GetExtension(addnewpd.primary_img_file.FileName);
                     var filePath = Path.Combine(uploadsFolder, uniqueFileName);
                     using (var stream = new FileStream(filePath, FileMode.Create))
                     {
-                        await primary_img.CopyToAsync(stream);
+                        await addnewpd.primary_img_file.CopyToAsync(stream);
                     }
                     mainImgUrl = $"/uploads/imgs/{uniqueFileName}";
                 }
@@ -161,9 +252,9 @@ namespace Project_Selling_Clean_Food.Controllers
 
             // Xử lý các ảnh phụ
             var listProductImages = new List<product_image>();
-            if (pi != null && pi.Count > 0)
+            if (addnewpd.images != null && addnewpd.images.Count > 0)
             {
-                foreach (var img in pi)
+                foreach (var img in addnewpd.images)
                 {
                     if (!validImgTypes.Contains(img.ContentType))
                         return BadRequest("Một hoặc nhiều ảnh phụ tải lên không hợp lệ");
@@ -197,18 +288,18 @@ namespace Project_Selling_Clean_Food.Controllers
             // Gom dữ liệu DetailProducts
             var detailProduct = new DetailProducts
             {
-                name = p.name,
-                description = p.description,
-                price = p.price,
-                unit = p.unit,
-                category_id = p.category_id,
-                origin = p.origin,
-                food_type = p.food_type,
-                quantity = p.quantity,
-                size = p.size,
-                usage_instructions = p.usage_instructions,
-                storage_instructions = p.storage_instructions,
-                hsd = p.hsd.Value,
+                name = addnewpd.name,
+                description = addnewpd.description,
+                price = addnewpd.price.Value,
+                unit = addnewpd.unit,
+                category_id = addnewpd.category_id.Value,
+                origin = addnewpd.origin,
+                food_type = addnewpd.food_type,
+                quantity = addnewpd.quantity.Value,
+                size = addnewpd.size,
+                usage_instructions = addnewpd.usage_instructions,
+                storage_instructions = addnewpd.storage_instructions,
+                hsd = addnewpd.hsd.Value,
                 created_at = DateTime.Now,
                 images = listProductImages
             };
@@ -216,7 +307,7 @@ namespace Project_Selling_Clean_Food.Controllers
             try
             {
                 var productId = await _sellingcleanfood.Add_new_Detail_product(detailProduct);
-                if(productId == 0)
+                if (productId == 0)
                 {
                     return BadRequest("Thêm mới sản phẩm thất bại");
                 }
@@ -231,7 +322,7 @@ namespace Project_Selling_Clean_Food.Controllers
         public async Task<ActionResult<List<RelatedProductDTO>>> Get_list_product_homepage()
         {
             var list = await _sellingcleanfood.Get_list_product_homepage();
-            if(list.Count == 0)
+            if (list.Count == 0)
             {
                 return NotFound("Danh sách sản phẩm trống");
             }
@@ -241,11 +332,21 @@ namespace Project_Selling_Clean_Food.Controllers
         public async Task<ActionResult<DetailProductWithRelatedDTO>> GetDetailProductWithRelatedAsync(int id)
         {
             var res = await _sellingcleanfood.GetDetailProductWithRelatedAsync(id);
-            if(res == null)
+            if (res == null)
             {
                 return BadRequest("Không tìm thấy sản phẩm");
             }
             return Ok(res);
+        }
+        [HttpGet("Get_list_product_staff_interface")]
+        public async Task<ActionResult<List<getListProduct_Staff>>> Get_list_product_staff_interface(){
+            var listres = await _sellingcleanfood.Get_list_product_staff_interface();
+            if (listres == null)
+            {
+                return BadRequest("Không tìm thấy sản phẩm");
+            }
+            return Ok(listres);
+
         }
     }
 }

@@ -43,6 +43,7 @@ namespace Project_Selling_Clean_Food.Controllers
         public async Task<ActionResult> AddnewAsync(users u)
         {
             var iduser = await _usersRepo.AddnewAsync(u);
+            Console.WriteLine(u.role.ToString());
             if(iduser > 0)
             {
                 u.id = iduser;
@@ -51,9 +52,14 @@ namespace Project_Selling_Clean_Food.Controllers
             return BadRequest("Thêm mới ng dùng không thành công");
         }
         [HttpPut("Users/UpdateUser")]
-        public async Task<ActionResult<int>> UpdateAsync(users u, int id)
+        public async Task<ActionResult<int>> UpdateAsync(UpdUserDTO u, int id)
         {
-            var affected_row = await _usersRepo.UpdateAsync(u,id);
+            users u1 = new users();
+            u1.email = u.email ?? u1.email;
+            u1.password = u.password ?? u1.password;
+            u1.name = u.name ?? u1.name;
+            u1.role = u.role ?? u1.role;
+            var affected_row = await _usersRepo.UpdateAsync(u1, id);
             if (affected_row > 0)
             {
                 return Ok("Sửa thành công");

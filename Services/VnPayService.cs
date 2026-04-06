@@ -31,7 +31,7 @@ namespace Project_Selling_Clean_Food.Services
             pay.AddRequestData("vnp_OrderInfo", $"{model.Amount}");
             pay.AddRequestData("vnp_OrderType", "Banking");
             pay.AddRequestData("vnp_ReturnUrl", urlCallBack);
-            pay.AddRequestData("vnp_TxnRef", tick);
+            pay.AddRequestData("vnp_TxnRef", $"{model.OrderId}_" + tick);
 
             var paymentUrl = pay.CreateRequestUrl(
                 _configuration["Vnpay:BaseUrl"],

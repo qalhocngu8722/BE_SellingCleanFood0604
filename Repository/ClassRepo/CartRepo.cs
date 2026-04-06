@@ -31,10 +31,11 @@ namespace Project_Selling_Clean_Food.Repository
         public async Task<List<CartListDTO>> GetCartListByUserIdAsync(int userId)
         {
             using var con = Getconnection();
-            var query = @"select p.name, p.price, p.unit, ci.quantity from cart as c
+            var query = @"select p.name, p.price, p.unit,ci.id, ci.quantity,ci.product_id,pi.image_url from cart as c
                         join cart_item as ci on c.id = ci.cart_id
                         join products as p on ci.product_id = p.id
-                        where c.user_id = @id";
+						join product_image as pi on pi.product_id = p.id 
+                        where c.user_id = @id and pi.is_primary	is true order by ci.added_at ASC";
             var result = await con.QueryAsync<CartListDTO>(query, new { id = userId });
             return result.ToList();
         }

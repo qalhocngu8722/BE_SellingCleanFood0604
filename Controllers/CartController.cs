@@ -54,7 +54,7 @@ namespace Project_Selling_Clean_Food.Controllers
             {
                 return Ok(res);
             }
-            return BadRequest("Danh sach cart dang rong vui long them moi cart");
+            return Ok(new List<CartListDTO>(){ });
         }
     }
 }

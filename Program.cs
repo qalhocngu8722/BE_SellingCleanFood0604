@@ -24,7 +24,7 @@ builder.Services.AddScoped<IVnPayService, VnPayService>();
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowFrontend", policy =>
+    options.AddPolicy("AllowAll", policy =>
     {
         policy.WithOrigins("http://127.0.0.1:5500") // địa chỉ frontend
               .AllowAnyHeader()
@@ -43,7 +43,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseStaticFiles();
 
-app.UseCors("AllowFrontend");
+app.UseCors("AllowAll");
 
 app.UseHttpsRedirection();
 

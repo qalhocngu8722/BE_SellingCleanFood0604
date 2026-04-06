@@ -1,4 +1,5 @@
-﻿using Project_Selling_Clean_Food.Model;
+﻿using Project_Selling_Clean_Food.DTOs;
+using Project_Selling_Clean_Food.Model;
 
 namespace Project_Selling_Clean_Food.Repository
 {
@@ -9,7 +10,7 @@ namespace Project_Selling_Clean_Food.Repository
         Task<int> UpdateAsync(users user, int id);
         Task<int> DeleteAsync(int id);
         Task<int> AddnewAsync(users user);
-        Task<users> Login(string email, string password);
+        Task<DetailIn4User> Login(string email, string password);
         Task<bool> SignUp(string name, string email, string password, string repeatPassword);
     }
 }

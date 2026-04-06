@@ -30,7 +30,35 @@ namespace Project_Selling_Clean_Food.Repository
 
         public async Task<int> AddnewAsync(orders order)
         {
-            return await AddnewAsync<orders>(order);
+            using var con = Getconnection();
+            var query = $@"INSERT INTO Orders
+                        (
+                            user_id,
+                            total_amount,
+                            payment_method,
+                            payment_status,
+                            order_status,
+                            shipping_address,
+                            note,
+                            recipient_name,
+                            phone,
+                            address
+                        )
+                        VALUES
+                        (
+                            @user_id,
+                            @total_amount,
+                            @payment_method,
+                            @payment_status,
+                            @order_status::order_status_type,
+                            @shipping_address,
+                            @Note,
+                            @recipient_name,
+                            @Phone,
+                            @Address
+                        ) RETURNING id;";
+            var newid = await con.QuerySingleAsync<int>(query, order);
+            return newid;
         }
         public async Task<List<orders>> Get_top_10_Current_order()
         {
@@ -57,12 +85,12 @@ namespace Project_Selling_Clean_Food.Repository
         public async Task<List<OrderListDTO>> GetOrderListByUserIdAsync(int userId)
         {
             using var con = Getconnection();
-            var query = @"select o.id, o.payment_method, o.payment_status, o.order_status, o.order_date, pi.image_url, p.name, oi.quantity, oi.unit_price
+            var query = @"select o.id, o.payment_method, o.payment_status, o.order_status, o.order_date, pi.image_url, p.name, oi.quantity, oi.unit_price,o.total_amount
                         from orders as o
                         join order_item as oi on o.id = oi.order_id
                         join products as p on p.id = oi.product_id
                         join product_image as pi on pi.product_id = p.id
-                        where o.user_id = @id";
+                        where o.user_id = @id and pi.is_primary is true";
             var result = await con.QueryAsync<OrderListDTO>(query, new { id = userId });
             return result.ToList();
         }
@@ -79,7 +107,7 @@ namespace Project_Selling_Clean_Food.Repository
                           JOIN order_item AS oi ON o.id = oi.order_id
                           JOIN products AS p ON oi.product_id = p.id
                           JOIN product_image AS pc ON p.id = pc.product_id
-                          WHERE pc.is_primary = 1
+                          WHERE pc.is_primary is true
                           ORDER BY o.created_at DESC";
 
             var orderDict = new Dictionary<int, GetListDetailOrderStaff>();
@@ -109,7 +137,7 @@ namespace Project_Selling_Clean_Food.Repository
         public async Task<int> UpdateOrderPaymentStatus(int orderId, string paymentStatus, string orderStatus)
         {
             using var con = Getconnection();
-            var query = @"UPDATE orders SET payment_status = @paymentStatus, order_status = @orderStatus WHERE id = @orderId";
+            var query = @"UPDATE orders SET payment_status = @paymentStatus, order_status = @orderStatus::order_status_type WHERE id = @orderId";
             return await con.ExecuteAsync(query, new { orderId, paymentStatus, orderStatus });
         }
     }
