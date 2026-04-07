@@ -30,4 +30,8 @@
     <Folder Include="wwwroot\uploads\videos\" />
   </ItemGroup>
 
+<ItemGroup>
+  <Compile Remove="Dockerfile" />
+  <None Include="Dockerfile" />
+</ItemGroup>
 </Project>
