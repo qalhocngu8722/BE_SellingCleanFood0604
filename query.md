@@ -15,4 +15,4 @@ where order_status = 'resolve' and EXTRACT(year from created_at) = extract(year 
 group by extract(month from created_at)
 
 Yêu cầu : đọc toàn bộ nội dùng và các file code có liên quan (có thể thêm,  mới tương ứng ) và giúp tôi tạo thêm code ở 3 nơi là : 
-class,repo,controller thât chuẩn và có thể hoạt động được 
+class,repo,controller thât chuẩn và có thể hoạt động được không lỗi 

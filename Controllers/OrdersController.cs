@@ -98,6 +98,39 @@ namespace Project_Selling_Clean_Food.Controllers
             }
             return Ok(res);
         }
+
+        [HttpGet("Orders/RevenueByDayCurrentMonth")]
+        public async Task<ActionResult<List<RevenueByDayDTO>>> GetRevenueByDayCurrentMonth()
+        {
+            var res = await _ordersRepo.GetRevenueByDayCurrentMonth();
+            if (res == null || res.Count == 0)
+            {
+                return NotFound("Không có dữ liệu doanh thu theo ngày");
+            }
+            return Ok(res);
+        }
+
+        [HttpGet("Orders/RevenueByUser")]
+        public async Task<ActionResult<List<RevenueByUserDTO>>> GetRevenueByUser()
+        {
+            var res = await _ordersRepo.GetRevenueByUser();
+            if (res == null || res.Count == 0)
+            {
+                return NotFound("Không có dữ liệu doanh thu theo người dùng");
+            }
+            return Ok(res);
+        }
+
+        [HttpGet("Orders/RevenueByMonthCurrentYear")]
+        public async Task<ActionResult<List<RevenueByMonthDTO>>> GetRevenueByMonthCurrentYear(int option)
+        {
+            var res = await _ordersRepo.GetRevenueByMonthCurrentYear(option);
+            if (res == null || res.Count == 0)
+            {
+                return NotFound("Không có dữ liệu doanh thu theo tháng");
+            }
+            return Ok(res);
+        }
         [HttpPut("Update_status_order")]
         public async Task<ActionResult<int>> UpdateOrderPaymentStatus(int orderId, string? payment_status, string? order_status)
         {

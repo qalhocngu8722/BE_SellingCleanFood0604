@@ -140,5 +140,48 @@ namespace Project_Selling_Clean_Food.Repository
             var query = @"UPDATE orders SET payment_status = @paymentStatus, order_status = @orderStatus::order_status_type WHERE id = @orderId";
             return await con.ExecuteAsync(query, new { orderId, paymentStatus, orderStatus });
         }
+
+        public async Task<List<RevenueByDayDTO>> GetRevenueByDayCurrentMonth()
+        {
+            using var con = Getconnection();
+            var query = @"SELECT date_trunc('day', created_at)::date AS day,count(*) as sodonhang, SUM(total_amount) AS total_amount
+                          FROM orders
+                          WHERE order_status = 'resolve'
+                            AND EXTRACT(MONTH FROM created_at) = EXTRACT(MONTH FROM now())
+                            AND EXTRACT(YEAR FROM created_at) = EXTRACT(YEAR FROM now())
+                          GROUP BY date_trunc('day', created_at)::date
+                          ORDER BY day ASC";
+            var res = await con.QueryAsync<RevenueByDayDTO>(query);
+            return res.ToList();
+        }
+
+        public async Task<List<RevenueByUserDTO>> GetRevenueByUser()
+        {
+            using var con = Getconnection();
+            var query = @"SELECT user_id, SUM(total_amount) AS tongtien
+                          FROM orders
+                          GROUP BY user_id
+                          ORDER BY tongtien DESC limit 10";
+            var res = await con.QueryAsync<RevenueByUserDTO>(query);
+            return res.ToList();
+        }
+
+        public async Task<List<RevenueByMonthDTO>> GetRevenueByMonthCurrentYear(int opt)
+        {
+            using var con = Getconnection();
+            var query = @"SELECT CAST(EXTRACT(MONTH FROM created_at) AS int) AS thang, SUM(total_amount) AS total_amount_month
+                          FROM orders
+                          WHERE order_status = 'resolve'
+                            AND EXTRACT(YEAR FROM created_at) = EXTRACT(YEAR FROM now())
+                          GROUP BY CAST(EXTRACT(MONTH FROM created_at) AS int)
+                          ORDER BY thang ASC";
+            var query1 = @"SELECT CAST(EXTRACT(YEAR FROM created_at) AS int) AS thang, SUM(total_amount) AS total_amount_month
+                          FROM orders
+                          WHERE order_status = 'resolve'
+                          GROUP BY CAST(EXTRACT(YEAR FROM created_at) AS int)
+                          ORDER BY thang ASC";
+            var res = await con.QueryAsync<RevenueByMonthDTO>(opt == 1 ? query1 : query);
+            return res.ToList();
+        }
     }
 }
