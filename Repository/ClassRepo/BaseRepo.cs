@@ -12,9 +12,20 @@ namespace Project_Selling_Clean_Food.Repository
         {
             _configuration = configuration;
         }
+        //public IDbConnection Getconnection()
+        //{
+        //    return new NpgsqlConnection(_configuration.GetConnectionString("MyConnection"));
+        //}
         public IDbConnection Getconnection()
         {
-            return new NpgsqlConnection(_configuration.GetConnectionString("MyConnection"));
+            var connectionString = Environment.GetEnvironmentVariable("DB_CONNECTION");
+
+            if (string.IsNullOrEmpty(connectionString))
+            {
+                throw new Exception("DB_CONNECTION not found ❌");
+            }
+
+            return new NpgsqlConnection(connectionString);
         }
         public async Task<T?> GetByIDAsync<T>(int id) where T : class
         {
