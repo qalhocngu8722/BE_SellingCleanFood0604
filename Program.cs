@@ -46,6 +46,7 @@ app.UseStaticFiles();
 app.UseCors("AllowAll");
 
 //app.UseHttpsRedirection();
+app.MapGet("/", () => "API is running 🚀");
 
 app.UseAuthorization();
 
