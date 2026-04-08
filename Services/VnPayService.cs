@@ -57,7 +57,7 @@ namespace Project_Selling_Clean_Food.Services
             pay.AddRequestData("vnp_Amount", ((int)(model.Amount * 100)).ToString());
             pay.AddRequestData("vnp_CreateDate", timeNow.ToString("yyyyMMddHHmmss"));
             pay.AddRequestData("vnp_CurrCode", currCode ?? "VND");
-            pay.AddRequestData("vnp_IpAddr", pay.GetIpAddress(context));
+            pay.AddRequestData("vnp_IpAddr", "192.168.1.1");
             pay.AddRequestData("vnp_Locale", locale ?? "vn");
             pay.AddRequestData("vnp_OrderInfo", $"Thanh toán đơn hàng {model.OrderId}");
             pay.AddRequestData("vnp_OrderType", "other");
