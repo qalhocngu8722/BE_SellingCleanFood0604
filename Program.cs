@@ -26,7 +26,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll", policy =>
     {
-        policy.WithOrigins("https://fe-project-selling-clean-food-h42m.vercel.app/") 
+        policy.WithOrigins("https://fe-project-selling-clean-food-h42m.vercel.app") 
               .AllowAnyHeader()
               .AllowAnyMethod();
     });
