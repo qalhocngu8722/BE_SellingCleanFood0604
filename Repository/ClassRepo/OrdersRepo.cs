@@ -101,7 +101,7 @@ namespace Project_Selling_Clean_Food.Repository
             var query = @"SELECT o.id, o.user_id, o.order_date, o.total_amount, o.payment_method,
                                  o.payment_status, o.order_status, o.shipping_address, o.note,
                                  o.recipient_name, o.phone, o.address, o.created_at,
-                                 oi.id, oi.order_id, oi.product_id, oi.quantity, oi.unit_price,p.unit,
+                                 oi.id, oi.order_id, oi.product_id, oi.quantity, oi.unit_price,
                                  p.name AS product_name, pc.image_url AS product_image_url
                           FROM orders AS o
                           JOIN order_item AS oi ON o.id = oi.order_id
