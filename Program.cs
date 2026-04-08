@@ -3,13 +3,12 @@ using Project_Selling_Clean_Food.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
+// Add services
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// DI
 builder.Services.AddSingleton<IConfiguration>(builder.Configuration);
 builder.Services.AddScoped<IUsersRepo, UserRepo>();
 builder.Services.AddScoped<IProductsRepo, ProductsRepo>();
@@ -22,19 +21,27 @@ builder.Services.AddScoped<IProductCategoryRepo, ProductCategoryRepo>();
 builder.Services.AddScoped<IProductImageRepo, ProductImageRepo>();
 builder.Services.AddScoped<IVnPayService, VnPayService>();
 
+// CORS
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll", policy =>
     {
-        policy.WithOrigins("http://127.0.0.1:5500") // địa chỉ frontend
-              .AllowAnyHeader()
-              .AllowAnyMethod();
+        policy
+            .AllowAnyOrigin() // 🔥 deploy thì nên mở hết (sau này tighten lại)
+            .AllowAnyHeader()
+            .AllowAnyMethod();
     });
 });
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+
+// 🔥 QUAN TRỌNG NHẤT - FIX PORT CHO RAILWAY
+var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
+app.Urls.Add($"http://*:{port}");
+
+
+// Middleware
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -45,7 +52,8 @@ app.UseStaticFiles();
 
 app.UseCors("AllowAll");
 
-app.UseHttpsRedirection();
+// ⚠️ Railway không cần HTTPS redirect
+// app.UseHttpsRedirection();
 
 app.UseAuthorization();
 

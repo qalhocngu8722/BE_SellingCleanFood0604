@@ -1,14 +1,19 @@
-﻿FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
-WORKDIR /src
+﻿# Build stage
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /app
 
-COPY . .
-
+COPY . ./
 RUN dotnet restore
-RUN dotnet publish -c Release -o /app/publish
+RUN dotnet publish -c Release -o out
 
+# Run stage
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
 
-COPY --from=build /app/publish .
+COPY --from=build /app/out ./
 
-CMD ["dotnet", "BE_SellingCleanFood0604.dll"]
+ENV ASPNETCORE_URLS=http://+:8080
+
+EXPOSE 8080
+
+ENTRYPOINT ["dotnet", "BE_SellingCleanFood0604.dll"]

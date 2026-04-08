@@ -9,6 +9,7 @@
         public decimal unit_price { get; set; }
         public string product_name { get; set; }
         public string product_image_url { get; set; }
+        public string unit {  get; set; }
         public decimal subtotal => quantity * unit_price;
     }
 }

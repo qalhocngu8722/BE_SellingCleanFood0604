@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "m2mfplmkvQ9RVm7yJvmsgd5ddLTow5OwcvcCvD3d6UYpS6rRjNEon7awatzBqZgrv8qdD+hi0vln8Q5l7UEXdg==",
+  "dgSpecHash": "QuClTtzOtELKKjtZW+TXETX02BAl4oK5dENZGJneDUslM3T1j6ISXjGvbbOtkRdkBkes2C+dEKoIysEhgIRfdw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\user\\OneDrive\\Đồ Án & BTL\\Selling Clean Food Upd2703\\BE\\Project-Selling-Clean-Food-2603\\Project Selling Clean Food.csproj",
+  "projectFilePath": "C:\\Users\\user\\OneDrive\\Đồ Án & BTL\\Selling Clean Food Final\\BE-Project-Selling-Clean-Food\\Project Selling Clean Food.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
