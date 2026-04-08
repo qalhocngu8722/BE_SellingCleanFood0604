@@ -26,7 +26,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll", policy =>
     {
-        policy.WithOrigins("http://127.0.0.1:5500") // địa chỉ frontend
+        policy.WithOrigins("https://fe-project-selling-clean-food-h42m.vercel.app/") 
               .AllowAnyHeader()
               .AllowAnyMethod();
     });
