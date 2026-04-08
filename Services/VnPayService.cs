@@ -65,7 +65,7 @@ namespace Project_Selling_Clean_Food.Services
             pay.AddRequestData("vnp_TxnRef", $"{model.OrderId}_{tick}");
 
             var paymentUrl = pay.CreateRequestUrl(baseUrl, hashSecret);
-
+            Console.WriteLine(paymentUrl);
             return paymentUrl;
         }
 
