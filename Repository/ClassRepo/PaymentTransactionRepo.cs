@@ -6,7 +6,7 @@ namespace Project_Selling_Clean_Food.Repository
     {
         public PaymentTransactionRepo(IConfiguration configuration) : base(configuration) { }
 
-        public async Task<payment_transaction> GetByIDAsync(int id)
+        public async Task<payment_transaction> ggGetByIDAsync(int id)
         {
             return await GetByIDAsync<payment_transaction>(id);
         }

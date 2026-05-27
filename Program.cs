@@ -24,9 +24,9 @@ builder.Services.AddScoped<IVnPayService, VnPayService>();
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAll", policy =>
+    options.AddPolicy("AllowFrontend", policy =>
     {
-        policy.WithOrigins("https://fe-project-selling-clean-food-h42m.vercel.app") 
+        policy.WithOrigins("http://127.0.0.1:5500") 
               .AllowAnyHeader()
               .AllowAnyMethod();
     });
@@ -34,19 +34,17 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-//if (app.Environment.IsDevelopment())
-//{
+if (app.Environment.IsDevelopment())
+{
     app.UseSwagger();
     app.UseSwaggerUI();
-//}
+}
 
 app.UseStaticFiles();
 
-app.UseCors("AllowAll");
+app.UseCors("AllowFrontend");
 
-//app.UseHttpsRedirection();
-app.MapGet("/", () => "API is running 🚀");
+app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
